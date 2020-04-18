@@ -1,0 +1,30 @@
+{% extends 'layout.html.j2' %}
+{% block content %}
+  <div class="text-center">
+    <h1>Select the course you are interested in</h2>
+  </div>
+  <div class="content-section">
+    <form action="" method="post" novalidate="novalidate">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="form-group">
+          {% if form.course.errors %}
+            {{ form.course(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.course.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.course(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      </fieldset>
+      <div class="row">
+        <div class="col-xs-4 col-md-2 text-center"><a class="btn btn-theme" href="{{ url_for('ranker.alevels', code=code) }}">&larr; Back</a></div>
+        <div class="col-xs-4 col-md-8 text-center"></div>
+        <div class="col-xs-4 col-md-2 text-center">{{ form.submit(class="btn btn-theme") }}</div>
+      </div>
+    </form>
+  </div>
+{% endblock content %}

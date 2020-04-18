@@ -1,0 +1,217 @@
+{% extends 'layout.html.j2' %}
+{% block content %}
+  <div class="text-center">
+    <h1>Enter your A-Level Achieved/Predicted Grades</h2>
+  </div>
+  <div class="content-section">
+    <form action="" method="post" novalidate="novalidate">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="form-group row">
+          <div class="col-xs-9">
+            {% if form.alevel_1.errors %}
+              {{ form.alevel_1(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_1.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_1(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_1.errors %}
+              {{ form.grade_1(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_1.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_1(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="col-xs-9">
+            {% if form.alevel_2.errors %}
+              {{ form.alevel_2(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_2.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_2(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_2.errors %}
+              {{ form.grade_2(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_2.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_2(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="col-xs-9">
+            {% if form.alevel_3.errors %}
+              {{ form.alevel_3(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_3.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_3(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_3.errors %}
+              {{ form.grade_3(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_3.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_3(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="col-xs-9">
+            {% if form.alevel_4.errors %}
+              {{ form.alevel_4(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_4.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_4(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_4.errors %}
+              {{ form.grade_4(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_4.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_4(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="col-xs-9">
+            {% if form.alevel_5.errors %}
+              {{ form.alevel_5(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_5.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_5(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_5.errors %}
+              {{ form.grade_5(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_5.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_5(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="col-xs-9">
+            {% if form.alevel_6.errors %}
+              {{ form.alevel_6(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_6.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_6(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_6.errors %}
+              {{ form.grade_6(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_6.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_6(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="col-xs-9">
+            {% if form.alevel_7.errors %}
+              {{ form.alevel_7(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_7.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_7(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_7.errors %}
+              {{ form.grade_7(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_7.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_7(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+
+          <div class="col-xs-9">
+            {% if form.alevel_8.errors %}
+              {{ form.alevel_8(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.alevel_8.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.alevel_8(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            {% if form.grade_8.errors %}
+              {{ form.grade_8(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.grade_8.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grade_8(class="form-control form-control-lg") }}
+            {% endif %}
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-group text-right">
+        {{ form.submit(class="btn btn-theme") }}
+      </div>
+    </form>
+  </div>
+{% endblock content %}
