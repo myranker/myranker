@@ -15,59 +15,87 @@ def alevels(code):
         return redirect(url_for('ranker.results', code=code))
     form = AlevelForm()
 
-    if form.alevel_8.data != '-' and form.alevel_7.data == '-':
+    if form.alevel_8.data != '-' and form.alevel_7.data == '-' and form.grade_7.data == '-':
         form.alevel_7.data = form.alevel_8.data
         form.alevel_8.data = '-'
-
-    if form.alevel_7.data != '-' and form.alevel_6.data == '-':
-        form.alevel_6.data = form.alevel_7.data
-        form.alevel_7.data = '-'
-
-    if form.alevel_6.data != '-' and form.alevel_5.data == '-':
-        form.alevel_5.data = form.alevel_6.data
-        form.alevel_6.data = '-'
-
-    if form.alevel_5.data != '-' and form.alevel_4.data == '-':
-        form.alevel_4.data = form.alevel_5.data
-        form.alevel_5.data = '-'
-
-    if form.alevel_4.data != '-' and form.alevel_3.data == '-':
-        form.alevel_3.data = form.alevel_4.data
-        form.alevel_4.data = '-'
-
-    if form.alevel_3.data != '-' and form.alevel_2.data == '-':
-        form.alevel_2.data = form.alevel_3.data
-        form.alevel_3.data = '-'
-
-    if form.alevel_2.data != '-' and form.alevel_1.data == '-':
-        form.alevel_1.data = form.alevel_2.data
-        form.alevel_2.data = '-'
-
-    if form.grade_8.data != '-' and form.grade_7.data == '-':
         form.grade_7.data = form.grade_8.data
         form.grade_8.data = '-'
 
-    if form.grade_7.data != '-' and form.grade_6.data == '-':
+    if form.alevel_7.data != '-' and form.alevel_6.data == '-' and form.grade_6.data == '-':
+        form.alevel_6.data = form.alevel_7.data
+        form.alevel_7.data = '-'
         form.grade_6.data = form.grade_7.data
         form.grade_7.data = '-'
 
-    if form.grade_6.data != '-' and form.grade_5.data == '-':
+    if form.alevel_6.data != '-' and form.alevel_5.data == '-' and form.grade_5.data == '-':
+        form.alevel_5.data = form.alevel_6.data
+        form.alevel_6.data = '-'
         form.grade_5.data = form.grade_6.data
         form.grade_6.data = '-'
 
-    if form.grade_5.data != '-' and form.grade_4.data == '-':
+    if form.alevel_5.data != '-' and form.alevel_4.data == '-' and form.grade_4.data == '-':
+        form.alevel_4.data = form.alevel_5.data
+        form.alevel_5.data = '-'
         form.grade_4.data = form.grade_5.data
         form.grade_5.data = '-'
 
-    if form.grade_4.data != '-' and form.grade_3.data == '-':
+    if form.alevel_4.data != '-' and form.alevel_3.data == '-' and form.grade_3.data == '-':
+        form.alevel_3.data = form.alevel_4.data
+        form.alevel_4.data = '-'
         form.grade_3.data = form.grade_4.data
         form.grade_4.data = '-'
 
-    if form.grade_3.data != '-' and form.grade_2.data == '-':
+    if form.alevel_3.data != '-' and form.alevel_2.data == '-' and form.grade_2.data == '-':
+        form.alevel_2.data = form.alevel_3.data
+        form.alevel_3.data = '-'
         form.grade_2.data = form.grade_3.data
         form.grade_3.data = '-'
 
-    if form.grade_2.data != '-' and form.grade_1.data == '-':
+    if form.alevel_2.data != '-' and form.alevel_1.data == '-' and form.grade_1.data == '-':
+        form.alevel_1.data = form.alevel_2.data
+        form.alevel_2.data = '-'
+        form.grade_1.data = form.grade_2.data
+        form.grade_2.data = '-'
+
+    if form.grade_8.data != '-' and form.grade_7.data == '-' and form.alevel_7.data == '-':
+        form.alevel_7.data = form.alevel_8.data
+        form.alevel_8.data = '-'
+        form.grade_7.data = form.grade_8.data
+        form.grade_8.data = '-'
+
+    if form.grade_7.data != '-' and form.grade_6.data == '-' and form.alevel_6.data == '-':
+        form.alevel_6.data = form.alevel_7.data
+        form.alevel_7.data = '-'
+        form.grade_6.data = form.grade_7.data
+        form.grade_7.data = '-'
+
+    if form.grade_6.data != '-' and form.grade_5.data == '-' and form.alevel_5.data == '-':
+        form.alevel_5.data = form.alevel_6.data
+        form.alevel_6.data = '-'
+        form.grade_5.data = form.grade_6.data
+        form.grade_6.data = '-'
+
+    if form.grade_5.data != '-' and form.grade_4.data == '-' and form.alevel_4.data == '-':
+        form.alevel_4.data = form.alevel_5.data
+        form.alevel_5.data = '-'
+        form.grade_4.data = form.grade_5.data
+        form.grade_5.data = '-'
+
+    if form.grade_4.data != '-' and form.grade_3.data == '-' and form.alevel_3.data == '-':
+        form.alevel_3.data = form.alevel_4.data
+        form.alevel_4.data = '-'
+        form.grade_3.data = form.grade_4.data
+        form.grade_4.data = '-'
+
+    if form.grade_3.data != '-' and form.grade_2.data == '-' and form.alevel_2.data == '-':
+        form.alevel_2.data = form.alevel_3.data
+        form.alevel_3.data = '-'
+        form.grade_2.data = form.grade_3.data
+        form.grade_3.data = '-'
+
+    if form.grade_2.data != '-' and form.grade_1.data == '-' and form.alevel_1.data == '-':
+        form.alevel_1.data = form.alevel_2.data
+        form.alevel_2.data = '-'
         form.grade_1.data = form.grade_2.data
         form.grade_2.data = '-'
 
