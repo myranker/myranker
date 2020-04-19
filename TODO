@@ -1,8 +1,5 @@
 - a levels
-  - reorder if any missed
   - check that all a levels have grades and vice versa
-- prefs
-  - polyfill for non-html5 browsers
 
 - add more unis and add descriptions
 - add more courses

@@ -15,37 +15,62 @@ def alevels(code):
         return redirect(url_for('ranker.results', code=code))
     form = AlevelForm()
 
-    if user.alevel_1:
-        form.alevel_1.default = str(user.alevel_1)
-        form.grade_1.default = str(user.grade_1)
+    if form.alevel_8.data != '-' and form.alevel_7.data == '-':
+        form.alevel_7.data = form.alevel_8.data
+        form.alevel_8.data = '-'
 
-    if user.alevel_2:
-        form.alevel_2.default = str(user.alevel_2)
-        form.grade_2.default = str(user.grade_2)
+    if form.alevel_7.data != '-' and form.alevel_6.data == '-':
+        form.alevel_6.data = form.alevel_7.data
+        form.alevel_7.data = '-'
 
-    if user.alevel_3:
-        form.alevel_3.default = str(user.alevel_3)
-        form.grade_3.default = str(user.grade_3)
+    if form.alevel_6.data != '-' and form.alevel_5.data == '-':
+        form.alevel_5.data = form.alevel_6.data
+        form.alevel_6.data = '-'
 
-    if user.alevel_4:
-        form.alevel_4.default = str(user.alevel_4)
-        form.grade_4.default = str(user.grade_4)
+    if form.alevel_5.data != '-' and form.alevel_4.data == '-':
+        form.alevel_4.data = form.alevel_5.data
+        form.alevel_5.data = '-'
 
-    if user.alevel_5:
-        form.alevel_5.default = str(user.alevel_5)
-        form.grade_5.default = str(user.grade_5)
+    if form.alevel_4.data != '-' and form.alevel_3.data == '-':
+        form.alevel_3.data = form.alevel_4.data
+        form.alevel_4.data = '-'
 
-    if user.alevel_6:
-        form.alevel_6.default = str(user.alevel_6)
-        form.grade_6.default = str(user.grade_6)
+    if form.alevel_3.data != '-' and form.alevel_2.data == '-':
+        form.alevel_2.data = form.alevel_3.data
+        form.alevel_3.data = '-'
 
-    if user.alevel_7:
-        form.alevel_7.default = str(user.alevel_7)
-        form.grade_7.default = str(user.grade_7)
+    if form.alevel_2.data != '-' and form.alevel_1.data == '-':
+        form.alevel_1.data = form.alevel_2.data
+        form.alevel_2.data = '-'
 
-    if user.alevel_8:
-        form.alevel_8.default = str(user.alevel_8)
-        form.grade_8.default = str(user.grade_8)
+    if form.grade_8.data != '-' and form.grade_7.data == '-':
+        form.grade_7.data = form.grade_8.data
+        form.grade_8.data = '-'
+
+    if form.grade_7.data != '-' and form.grade_6.data == '-':
+        form.grade_6.data = form.grade_7.data
+        form.grade_7.data = '-'
+
+    if form.grade_6.data != '-' and form.grade_5.data == '-':
+        form.grade_5.data = form.grade_6.data
+        form.grade_6.data = '-'
+
+    if form.grade_5.data != '-' and form.grade_4.data == '-':
+        form.grade_4.data = form.grade_5.data
+        form.grade_5.data = '-'
+
+    if form.grade_4.data != '-' and form.grade_3.data == '-':
+        form.grade_3.data = form.grade_4.data
+        form.grade_4.data = '-'
+
+    if form.grade_3.data != '-' and form.grade_2.data == '-':
+        form.grade_2.data = form.grade_3.data
+        form.grade_3.data = '-'
+
+    if form.grade_2.data != '-' and form.grade_1.data == '-':
+        form.grade_1.data = form.grade_2.data
+        form.grade_2.data = '-'
+
 
     if form.validate_on_submit():
         if form.alevel_1.data == '-':
@@ -107,7 +132,38 @@ def alevels(code):
         db.session.commit()
 
         return redirect(url_for('ranker.course', code=code))
-    form.process()
+
+    if user.alevel_1:
+        form.alevel_1.data = str(user.alevel_1)
+        form.grade_1.data = str(user.grade_1)
+
+    if user.alevel_2:
+        form.alevel_2.data = str(user.alevel_2)
+        form.grade_2.data = str(user.grade_2)
+
+    if user.alevel_3:
+        form.alevel_3.data = str(user.alevel_3)
+        form.grade_3.data = str(user.grade_3)
+
+    if user.alevel_4:
+        form.alevel_4.data = str(user.alevel_4)
+        form.grade_4.data = str(user.grade_4)
+
+    if user.alevel_5:
+        form.alevel_5.data = str(user.alevel_5)
+        form.grade_5.data = str(user.grade_5)
+
+    if user.alevel_6:
+        form.alevel_6.data = str(user.alevel_6)
+        form.grade_6.data = str(user.grade_6)
+
+    if user.alevel_7:
+        form.alevel_7.data = str(user.alevel_7)
+        form.grade_7.data = str(user.grade_7)
+
+    if user.alevel_8:
+        form.alevel_8.data = str(user.alevel_8)
+        form.grade_8.data = str(user.grade_8)
 
     return render_template('ranker/alevels.html.j2', title='A-levels', form=form)
 
@@ -123,13 +179,13 @@ def course(code):
     if not user.alevel_1:
         return redirect(url_for('ranker.alevels', code=code))
     form = CourseForm()
-    if user.course:
-        form.course.default = user.course
+    print(user.course)
     if form.validate_on_submit():
-        user.course = form.course.data
+        user.course = int(form.course.data)
         db.session.commit()
         return redirect(url_for('ranker.preferences', code=code))
-    form.process()
+    if user.course:
+        form.course.data = str(user.course)
     return render_template('ranker/course.html.j2', title='Course', form=form, code=code)
 
 
