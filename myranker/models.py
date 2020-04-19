@@ -60,7 +60,7 @@ class User(db.Model):
 class University(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False)
-    info = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
 
 
 class Course(db.Model):

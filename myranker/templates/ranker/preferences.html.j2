@@ -1,0 +1,137 @@
+{% extends 'layout.html.j2' %}
+{% block content %}
+  <div class="text-center">
+    <h1>Select the course you are interested in</h2>
+  </div>
+  <div class="content-section">
+    <form action="" method="post" novalidate="novalidate">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="form-group row">
+          <div class="col-md-2">
+            <b>{{ form.league_table_pref.label(class="form-control-label") }}</b>
+          </div>
+          <div class="col-md-10">
+            {% if form.league_table_pref.errors %}
+              {{ form.league_table_pref(class="form-control form-control-lg is-invalid", min="0", max="10", step="1") }}
+              <div class="invalid-feedback">
+                {% for error in form.league_table_pref.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.league_table_pref(class="form-control form-control-lg", min="0", max="10", step="1") }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-2">
+            <b>{{ form.student_satisfaction_pref.label(class="form-control-label") }}</b>
+          </div>
+          <div class="col-md-10">
+            {% if form.student_satisfaction_pref.errors %}
+              {{ form.student_satisfaction_pref(class="form-control form-control-lg is-invalid", min="0", max="10", step="1") }}
+              <div class="invalid-feedback">
+                {% for error in form.student_satisfaction_pref.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.student_satisfaction_pref(class="form-control form-control-lg", min="0", max="10", step="1") }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-2">
+            <b>{{ form.employability_pref.label(class="form-control-label") }}</b>
+          </div>
+          <div class="col-md-10">
+            {% if form.employability_pref.errors %}
+              {{ form.employability_pref(class="form-control form-control-lg is-invalid", min="0", max="10", step="1") }}
+              <div class="invalid-feedback">
+                {% for error in form.employability_pref.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.employability_pref(class="form-control form-control-lg", min="0", max="10", step="1") }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-2">
+            <b>{{ form.research_quality_pref.label(class="form-control-label") }}</b>
+          </div>
+          <div class="col-md-10">
+            {% if form.research_quality_pref.errors %}
+              {{ form.research_quality_pref(class="form-control form-control-lg is-invalid", min="0", max="10", step="1") }}
+              <div class="invalid-feedback">
+                {% for error in form.research_quality_pref.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.research_quality_pref(class="form-control form-control-lg", min="0", max="10", step="1") }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-2">
+            <b>{{ form.student_to_staff_pref.label(class="form-control-label") }}</b>
+          </div>
+          <div class="col-md-10">
+            {% if form.student_to_staff_pref.errors %}
+              {{ form.student_to_staff_pref(class="form-control form-control-lg is-invalid", min="0", max="10", step="1") }}
+              <div class="invalid-feedback">
+                {% for error in form.student_to_staff_pref.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.student_to_staff_pref(class="form-control form-control-lg", min="0", max="10", step="1") }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-2">
+            <b>{{ form.cost_of_living_pref.label(class="form-control-label") }}</b>
+          </div>
+          <div class="col-md-10">
+            {% if form.cost_of_living_pref.errors %}
+              {{ form.cost_of_living_pref(class="form-control form-control-lg is-invalid", min="0", max="10", step="1") }}
+              <div class="invalid-feedback">
+                {% for error in form.cost_of_living_pref.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.cost_of_living_pref(class="form-control form-control-lg", min="0", max="10", step="1") }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-2">
+            <b>{{ form.international_student_pref.label(class="form-control-label") }}</b>
+          </div>
+          <div class="col-md-10">
+            {% if form.international_student_pref.errors %}
+              {{ form.international_student_pref(class="form-control form-control-lg is-invalid", min="0", max="10", step="1") }}
+              <div class="invalid-feedback">
+                {% for error in form.international_student_pref.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.international_student_pref(class="form-control form-control-lg", min="0", max="10", step="1") }}
+            {% endif %}
+          </div>
+        </div>
+      </fieldset>
+      <div class="row">
+        <div class="col-xs-4 col-md-2 text-center"><a class="btn btn-theme" href="{{ url_for('ranker.course', code=code) }}">&larr; Back</a></div>
+        <div class="col-xs-4 col-md-8 text-center"></div>
+        <div class="col-xs-4 col-md-2 text-center">{{ form.submit(class="btn btn-theme") }}</div>
+      </div>
+    </form>
+  </div>
+{% endblock content %}

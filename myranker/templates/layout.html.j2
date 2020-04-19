@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap-fixes.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/navbar.min.css') }}">
   {% block head %}{% endblock head %}
   {% if title %}
     <title>{{ title }} - MyRanker</title>
@@ -18,28 +17,11 @@
   {% endif %}
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container-fluid">
 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span>Menu</span>
-        </button>
-        <a class="navbar-brand" href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='assets/myranker-logo-inverted.png') }}" alt="MyRanker"></a>
-      </div>
+  <div class="text-center">
+    <img src="{{ url_for('static', filename='assets/myranker-logo.png') }}" alt="MyRanker" class="logo">
+  </div>
 
-
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#">123</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">123</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <div class="container full-height">
     {% with messages = get_flashed_messages(with_categories=true) %}

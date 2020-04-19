@@ -1,6 +1,7 @@
 from flask import abort, render_template, url_for, redirect, flash, request, Blueprint
 from myranker.models import User, Alevel
 from myranker import db
+from myranker.ranker.rank import rank
 
 ranker = Blueprint('ranker', __name__)
 
@@ -10,6 +11,8 @@ def alevels(code):
     user = User.query.filter_by(code=code).first()
     if not user:
         return redirect(url_for('main.begin'))
+    if user.is_complete:
+        return redirect(url_for('ranker.results', code=code))
     form = AlevelForm()
 
     if user.alevel_1:
@@ -115,6 +118,8 @@ def course(code):
     user = User.query.filter_by(code=code).first()
     if not user:
         return redirect(url_for('main.begin'))
+    if user.is_complete:
+        return redirect(url_for('ranker.results', code=code))
     if not user.alevel_1:
         return redirect(url_for('ranker.alevels', code=code))
     form = CourseForm()
@@ -130,10 +135,41 @@ def course(code):
 
 @ranker.route('/preferences/<string:code>', methods=['GET', 'POST'])
 def preferences(code):
+    from myranker.ranker.forms import PreferencesForm
     user = User.query.filter_by(code=code).first()
     if not user:
         return redirect(url_for('main.begin'))
-    if not user.alevel_1:
-        return redirect(url_for('ranker.alevels', code=code))
+    if user.is_complete:
+        return redirect(url_for('ranker.results', code=code))
     if not user.course:
         return redirect(url_for('ranker.course', code=code))
+    form = PreferencesForm()
+    if form.validate_on_submit():
+        user.league_table_pref = int(form.league_table_pref.data)
+        user.student_satisfaction_pref = int(form.student_satisfaction_pref.data)
+        user.employability_pref = int(form.employability_pref.data)
+        user.research_quality_pref = int(form.research_quality_pref.data)
+        user.student_to_staff_pref = int(form.student_to_staff_pref.data)
+        user.cost_of_living_pref = int(form.cost_of_living_pref.data)
+        user.international_student_pref = int(form.international_student_pref.data)
+
+        user.uni_1, user.uni_2, user.uni_3, user.uni_4, user.uni_5, user.uni_6, user.uni_7, user.uni_8, user.uni_9, user.uni_10 = rank(user)
+
+        user.is_complete = True
+
+        db.session.commit()
+
+        return redirect(url_for('ranker.results', code=code))
+    return render_template('ranker/preferences.html.j2', title='Preferences', form=form, code=code)
+
+
+@ranker.route('/results/<string:code>')
+def results(code):
+    user = User.query.filter_by(code=code).first()
+    if not user:
+        return redirect(url_for('main.begin'))
+    if not user.is_complete:
+        return redirect(url_for('ranker.preferences', code=code))
+    print(user.league_table_pref)
+    print(user.is_complete)
+    return code

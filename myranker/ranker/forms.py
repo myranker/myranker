@@ -1,6 +1,7 @@
 from flask import url_for
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SubmitField
+from wtforms.fields.html5 import DecimalRangeField
 from wtforms.validators import InputRequired, Email, ValidationError, EqualTo, Length
 from myranker.models import Alevel, Alevelgrade, Course
 
@@ -48,3 +49,14 @@ class CourseForm(FlaskForm):
     def validate_course(self, course):
         if course.data == '-':
             raise ValidationError('Please select a course')
+
+
+class PreferencesForm(FlaskForm):
+    league_table_pref = DecimalRangeField('League Table Ranking', default=5)
+    student_satisfaction_pref = DecimalRangeField('Student Satisfaction', default=5)
+    employability_pref = DecimalRangeField('Employability', default=5)
+    research_quality_pref = DecimalRangeField('Research Quality', default=5)
+    student_to_staff_pref = DecimalRangeField('Student-to-Staff Ratio', default=5)
+    cost_of_living_pref = DecimalRangeField('Cost of Living', default=5)
+    international_student_pref = DecimalRangeField('High International Student Ratio', default=5)
+    submit = SubmitField('Next →')

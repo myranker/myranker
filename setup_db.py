@@ -23,6 +23,19 @@ def setup_db(db, app):
         for course in courses:
             db.session.add(Course(name=course))
 
+
+        db.session.add(University(name='University of Cambridge', description='University of Cambridge [Temporary Description]'))
+        db.session.add(University(name='University of St Andrews', description='University of St Andrews [Temporary Description]'))
+        db.session.add(University(name='University of Hull', description='University of Hull [Temporary Description]'))
+        db.session.add(University(name='University of Sheffield', description='University of Sheffield [Temporary Description]'))
+        db.session.add(University(name='Imperial College London', description='Imperial College London [Temporary Description]'))
+        db.session.add(University(name='Bournemouth University', description='Bournemouth University [Temporary Description]'))
+        db.session.add(University(name='University of Surrey', description='University of Surrey [Temporary Description]'))
+        db.session.add(University(name='University of Chester', description='University of Chester [Temporary Description]'))
+        db.session.add(University(name='University of Loughborough', description='University of Loughborough [Temporary Description]'))
+        db.session.add(University(name='Aberystwyth University', description='Aberystwyth University [Temporary Description]'))
+
+
         db.session.commit()
 
 

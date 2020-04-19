@@ -1,14 +1,11 @@
-- prefs
-  - make page
 - results
   - make page
-
-
 - a levels
   - reorder if any missed
   - check that all a levels have grades and vice versa
-- courses
-  - add more uni courses
 - prefs
-  - add campus/city
-  - add russell group/not
+  - polyfill for non-html5 browsers
+
+- add more unis and add descriptions
+- add more courses
+- connect rank() function
