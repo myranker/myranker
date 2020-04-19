@@ -19,7 +19,9 @@
 <body>
 
   <div class="text-center">
-    <img src="{{ url_for('static', filename='assets/myranker-logo.png') }}" alt="MyRanker" class="logo">
+    <a href="{{ url_for('main.index') }}">
+      <img src="{{ url_for('static', filename='assets/myranker-logo.png') }}" alt="MyRanker" class="logo">
+    </a>
   </div>
 
 
@@ -37,6 +39,7 @@
   </div>
 
   <script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='scripts/popper.min.js') }}"></script>
   <script src="{{ url_for('static', filename='scripts/bootstrap.min.js') }}"></script>
   <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
   {% block body %}{% endblock body %}

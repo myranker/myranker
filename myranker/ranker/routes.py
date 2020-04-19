@@ -1,5 +1,5 @@
 from flask import abort, render_template, url_for, redirect, flash, request, Blueprint
-from myranker.models import User, Alevel
+from myranker.models import User, Alevel, University
 from myranker import db
 from myranker.ranker.rank import rank
 
@@ -170,6 +170,5 @@ def results(code):
         return redirect(url_for('main.begin'))
     if not user.is_complete:
         return redirect(url_for('ranker.preferences', code=code))
-    print(user.league_table_pref)
-    print(user.is_complete)
-    return code
+    unis = [University.query.get(user.uni_1), University.query.get(user.uni_2), University.query.get(user.uni_3), University.query.get(user.uni_4), University.query.get(user.uni_5), University.query.get(user.uni_6), University.query.get(user.uni_7), University.query.get(user.uni_8), University.query.get(user.uni_9), University.query.get(user.uni_10)]
+    return render_template('ranker/results.html.j2', title='Results', code=code, unis=unis)

@@ -2,7 +2,9 @@
 {% block content %}
   <div class="text-center">
     <h1>Welcome to MyRanker!</h1>
-    <p>Get a list of universities personally ranked for you based on preferences that are important to you.</p>
-    <a class="btn btn-theme btn-lg" href="{{ url_for('main.begin') }}">Begin!</a>
+    <div class="content-section">
+      <p>Get a list of universities personally ranked for you based on preferences that are important to you.</p>
+      <a class="btn btn-theme btn-lg" href="{{ url_for('main.begin') }}">Begin!</a>
+    </div>
   </div>
 {% endblock content %}

@@ -1,0 +1,83 @@
+{% extends 'layout.html.j2' %}
+{% block content %}
+  <div class="text-center">
+    <h1>Results</h2>
+  </div>
+  <div class="content-section">
+    <p class="text-center">Use this link to come back to your results at any time:</p>
+    <div class="permalink-display text-center">
+      https://myranker.co.uk/results/{{ code }}
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-2 col-xs-12"></div>
+      <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://myranker.co.uk&quote=https://myranker.co.uk/results/{{ code }} - These are my personalised university rankings! Find yours at https://myranker.co.uk!" class="col-md-3 col-xs-5 btn btn-facebook">Share on Facebook</a>
+      <div class="col-2"></div>
+      <a target="_blank" href="https://twitter.com/intent/tweet?text=https://myranker.co.uk/results/{{ code }} - These are my personalised university rankings! Find yours at https://myranker.co.uk!" class="col-md-3 col-xs-5 btn btn-twitter">Share on Twitter</a>
+      <div class="col-md-2 col-xs-12"></div>
+    </div>
+    <br>
+    <p class="text-center">Click on any university below to see a description.</p>
+
+    <div class="unis accordion" id="ranking-table">
+      {% for uni in unis %}
+        {% set rank = loop.index | string %}
+        {% set id = uni.id | string %}
+        {% set name = uni.name %}
+        {% set description = uni.description %}
+        <div class="card">
+          <div class="card-header" id="heading-{{ rank }}">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed ranking-table-uni-name" type="button" data-toggle="collapse" data-target="#collapse-{{ rank }}" aria-expanded="false" aria-controls="#collapse-{{ rank }}">{{ rank }}. <img class="ranking-table-uni-logo" alt="Logo ({{ name }})" src="{{ url_for('static', filename='assets/uni-logos/' + id + '.png') }}"> {{ name }}</button>
+            </h2>
+          </div>
+          <div id="collapse-{{ rank }}" class="collapse" aria-labelledby="heading-{{ rank }}" data-parent="#ranking-table">
+            <div class="card-body">{{ description }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <br>
+    <div class="text-center">
+      Want to try again and change some preferences? <br>
+      <a href="{{ url_for('main.begin') }}" class="btn btn-theme">Restart!</a>
+    </div>
+  </div>
+{% endblock content %}
+{% block head %}
+  <style>
+    .permalink-display {
+      max-width: 80%;
+      padding: 6px;
+      overflow-x: scroll;
+      margin: auto;
+      border: 2px solid #cb444b;
+      font-size: 1.5em;
+    }
+
+    .ranking-table-uni-name {
+      color: black;
+      font-size: 0.75em;
+    }
+
+    .ranking-table-uni-name:hover, .ranking-table-uni-name:focus {
+      color: black;
+    }
+
+    .ranking-table-uni-logo {
+      height: 1.2em;
+    }
+
+    .btn-facebook {
+      background-color: #3b5998;
+    }
+
+    .btn-twitter {
+      background-color: #00acee;
+    }
+
+    .btn-twitter, .btn-facebook, .btn-twitter:hover, .btn-facebook:hover, .btn-twitter:focus, .btn-facebook:focus {
+      color: white;
+    }
+  </style>
+{% endblock head %}
